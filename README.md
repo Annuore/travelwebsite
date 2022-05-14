@@ -15,10 +15,10 @@ This code deploys an s3 bucket and a cloudfront distribution to AWS. The objecti
 <br>
 
 # Table of Content
-* [**Insight**] (#ins)
-* [**Instructions**] (#instr)
-* [**Via-Cloudformation**] (#cfn)
-* [**Resources**] (#res)
+- [**Insight**] (#ins)
+- [**Instructions**] (#instr)
+- [**Via-Cloudformation**] (#cfn)
+- [**Resources**] (#res)
 <br>
 
 # Insight <a id='ins'></a>
@@ -124,8 +124,8 @@ This code deploys an s3 bucket and a cloudfront distribution to AWS. The objecti
 <br>
 
 # Recources <a id='res'></a>
-* [Amazon Cloudfront] (https://www.amazonaws.cn/en/cloudfront/)
-* [Amazon S3] (https://aws.amazon.com/s3/)
-* [Amazon CloudFront resource type reference] (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CloudFront.html)
-* [Amazon Simple Storage Service resource type reference] (https://docs.amazonaws.cn/en_us/AWSCloudFormation/latest/UserGuide/AWS_S3.html)
-* [Using the AWS CloudFormation console] (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console.html)
+- [Amazon Cloudfront] (https://www.amazonaws.cn/en/cloudfront/)
+- [Amazon S3] (https://aws.amazon.com/s3/)
+- [Amazon CloudFront resource type reference] (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CloudFront.html)
+- [Amazon Simple Storage Service resource type reference] (https://docs.amazonaws.cn/en_us/AWSCloudFormation/latest/UserGuide/AWS_S3.html)
+- [Using the AWS CloudFormation console] (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-using-console.html)
