@@ -42,7 +42,7 @@ This code deploys an s3 bucket and a cloudfront distribution to AWS. The objecti
 
 - Make sure you are in the root directory of this repo `travelwebsite`
 - Run `aws configure` to set up your CLI
-- Deploy this [CloudFormation template](./cfn/template.yaml) to AWS and save the outputs asn env variables
+- Deploy this [CloudFormation template](./Cfn/template.yaml) to AWS and save the outputs asn env variables
 
   - [`create-stack`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/create-stack.html)
 
