@@ -1,0 +1,68 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "This cloudformation template creates an s3 bucket with website hosting enabled"
+
+Parameters:
+  BucketName: 
+    Type: String
+    Default: "mytravelwebsite-51422"
+
+Resources: 
+  S3Bucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      AccessControl: "PublicRead"
+      BucketName: !Ref BucketName
+      WebsiteConfiguration: 
+        IndexDocument: "index.html"
+        ErrorDocument: "index.html"
+  S3BucketPolicy:
+    Type: "AWS::S3::BucketPolicy"
+    Properties:
+      Bucket: !Ref S3Bucket 
+      PolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+         - Action: "S3:GetObject"
+           Effect: "Allow"
+           Principal: "*"
+           Resource: 
+            - !GetAtt S3Bucket.Arn
+            - !Sub '${S3Bucket.Arn}/*'
+  
+  CloudfrontOAI:
+    Type: "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+    Properties: 
+      CloudFrontOriginAccessIdentityConfig: 
+        Comment: !Ref S3Bucket
+
+  CloudfrontDistribution:
+    Type: "AWS::CloudFront::Distribution"
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Origins:
+        - DomainName: !GetAtt S3Bucket.DomainName
+          Id: "S3Bucket"
+          S3OriginConfig:
+            OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudfrontOAI}"
+        DefaultRootObject: index.html
+        DefaultCacheBehavior: 
+          TargetOriginId: "S3Bucket"
+          AllowedMethods: 
+          - GET 
+          - HEAD 
+          ViewerProtocolPolicy: "redirect-to-https"
+          CachePolicyId: "658327ea-f89d-4fab-a63d-7e88639e58f6"
+          Compress: true
+        PriceClass: PriceClass_All
+        
+
+Outputs:
+  S3BucketName: 
+    Value: !Ref BucketName
+  S3URL:
+    Value: !GetAtt S3Bucket.WebsiteURL
+  DistributionDomainName:
+    Value: !GetAtt CloudfrontDistribution.DomainName
+  DistributionID:
+    Value: !Ref CloudfrontDistribution
