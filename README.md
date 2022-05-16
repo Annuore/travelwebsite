@@ -4,8 +4,10 @@
 ## Summary
 <br>
 
-# Objective
-This code deploys an s3 bucket and a cloudfront distribution to AWS. The objective of this project is to host a static website on amazon S3 and access the website using amazon's Content Delivery Network (CDN), Cloudfront. 
+# Project Overview
+This code deploys an s3 bucket and a cloudfront distribution to AWS. The objective of this project is to,
+* host a static website on S3, and,
+* access the cached website pages using CloudFront content delivery network (CDN) service. CloudFront offers low latency and high transfer speeds during website rendering.
 <br>
 
 # Technology Stack
@@ -27,13 +29,14 @@ This code deploys an s3 bucket and a cloudfront distribution to AWS. The objecti
 <br>
 
 # Instructions <a id='instr'></a>
-- Create a bucket `<bucket-name>` and make it publicly accessible
-- Enable `static website hosting` on the Bucket
-- Upload the web files to s3
-- Create a `Cloud Front Distribution`
-- Make the bucket a `Cloud Front Origin Access Identity` for that Distribution
-- Create a `bucket Policy` that `grants public read access` to the `CLoud Front Distriubtion only`
-- Access the website via the cloud front Distrubution
+In this project, you will deploy a static website to AWS by performing the following steps:
+- Create a bucket `<bucket-name>` and make it publicly accessible.
+- Enable `static website hosting` on the bucket and secure it using IAM policies.
+- Upload the web files to your bucket.
+- Create a `CloudFront distribution`.
+- Make the bucket a `CloudFront Origin Access Identity (OAI)` for that distribution.
+- Create a `bucket Policy` that `grants public read access` to the `CloudFront distriubtion`.
+- Access the website using the unique cloudfront distribution endpoint.
 <br>
 
 # Via Cloudformation <a id='cfn'></a>
